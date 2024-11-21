@@ -1,17 +1,17 @@
 {% set name = "raynest" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/raynest-{{ version }}.tar.gz
-  sha256: 7d691dbd528f1c3290668d0a629ffd332adb98783fa6883548ef188d30baca17
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/raynest-{{ version }}.tar.gz
+  sha256: 1b359c87751d6920ef77aefcc1aae7681866401e2bb77afef96830e72117fa72
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   # ray is not available on OSX yet
   skip: true  # [osx]
 
@@ -24,20 +24,19 @@ requirements:
     - numpy
     - pip
     - python
+    - setuptools
     - setuptools-scm
   run:
+    - python
+    - numpy
+    - scipy
     - corner
-    - cython
+    - tqdm
+    - matplotlib-base
+    - ray-default
     - dill
     - h5py
-    - matplotlib-base
-    - psutil
-    - python
-    - ray-default
-    - scipy
-    - tqdm
-    - {{ pin_compatible('numpy') }}
-
+    
 test:
   imports:
     - raynest
