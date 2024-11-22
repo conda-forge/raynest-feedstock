@@ -1,5 +1,5 @@
 {% set name = "raynest" %}
-{% set version = "1.0.5" %}
+{% set version = "1.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/raynest-{{ version }}.tar.gz
-  sha256: 1b359c87751d6920ef77aefcc1aae7681866401e2bb77afef96830e72117fa72
+  sha256: 7204ae01b22a04c622924773de4efe15711e6f3ffce8bd9e330525b89aba648a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
@@ -36,7 +36,7 @@ requirements:
     - ray-default
     - dill
     - h5py
-    
+
 test:
   imports:
     - raynest
