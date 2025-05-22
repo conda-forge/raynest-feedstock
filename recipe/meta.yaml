@@ -1,5 +1,5 @@
 {% set name = "raynest" %}
-{% set version = "1.0.6" %}
+{% set version = "1.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/raynest-{{ version }}.tar.gz
-  sha256: 7204ae01b22a04c622924773de4efe15711e6f3ffce8bd9e330525b89aba648a
+  sha256: 3d88564bbaa965b0826ce9a98f748499c893d0497e91ddafc91a5c4eaa713316
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
   # ray is not available on OSX yet
   skip: true  # [osx]
 
